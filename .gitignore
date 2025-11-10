@@ -1,0 +1,31 @@
+# --- Datasets ---
+# The user explicitly asked to ignore these
+asl_alphabet_train/
+asl_alphabet_test/
+*.zip
+
+# --- Trained Models ---
+# These are huge and should not be in Git
+*.keras
+*.h5
+hand_landmarker.task
+
+# --- Python / Conda ---
+# Environment folders
+env/
+venv/
+env_mediapipe/
+asl_gpu/
+
+# Caches
+__pycache__/
+*.pyc
+
+# --- Jupyter Notebook ---
+.ipynb_checkpoints/
+
+# --- VS Code ---
+.vscode/
+
+# --- TensorBoard Logs ---
+logs/
