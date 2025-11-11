@@ -3,6 +3,7 @@
 asl_alphabet_train/
 asl_alphabet_test/
 *.zip
+*.csv
 
 # --- Trained Models ---
 # These are huge and should not be in Git
