@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ASL Hand Gesture Recognition</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #282c34;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-weight: 300;
+    }
+    #liveView {
+      position: relative;
+      border: 2px solid #555;
+      border-radius: 10px;
+    }
+
+    /* --- THIS IS THE VISUAL FIX --- */
+    /* We add the 'transform' back to BOTH elements. */
+    #input_video{
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 10px;
+      transform: scaleX(-1); /* This creates the "mirror" effect */
+    }
+    /* --- END FIX --- */
+    
+    #output_canvas {
+      z-index: 10;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 10px;
+    }
+    #prediction {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-top: 20px;
+      height: 4rem; 
+    }
+    /* This canvas is hidden. It's only for pre-processing. */
+    #hidden_canvas {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ASL Recognition</h1>
+
+  <div id="liveView">
+    <video id="input_video" autoplay playsinline></video>
+    <canvas id="output_canvas"></canvas>
+  </div>
+  
+  <div id="prediction">Loading...</div>
+
+  <canvas id="hidden_canvas"></canvas>
+  
+  <script src="main.js"></script>
+</body>
+</html>
