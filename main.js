@@ -203,7 +203,8 @@ async function runApp() {
     locateFile: (file) => {
       // This function strips the internal path
       const filename = file.split('/').pop();
-      return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${filename}`;
+      // FIX: Pin the version here too so it finds the matching .wasm files
+      return `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/${filename}`;
     }
   });
 
